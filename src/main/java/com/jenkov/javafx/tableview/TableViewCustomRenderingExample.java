@@ -18,28 +18,9 @@ public class TableViewCustomRenderingExample extends Application {
     @Override
     public void start(Stage primaryStage)  {
 
-        TableView tableView = new TableView();
+        TableView<Customer> tableView = new TableView<>();
 
-        TableColumn<Customer, String> customerColumn = new TableColumn<Customer, String>("Customer");
-
-        customerColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        customerColumn.setCellFactory((tableColumn) -> {
-            TableCell<Customer, String> tableCell = new TableCell<Customer, String>() {
-                @Override
-                protected void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-
-                    this.setText(null);
-                    this.setGraphic(null);
-
-                    if(!empty){
-                        this.setText(item.toUpperCase());
-                    }
-                }
-            };
-
-            return tableCell;
-        });
+        TableColumn<Customer, String> customerColumn = getCustomerStringTableColumn();
 
         tableView.getColumns().add(customerColumn);
 
@@ -54,5 +35,27 @@ public class TableViewCustomRenderingExample extends Application {
         primaryStage.setTitle("JavaFX TableView Example");
 
         primaryStage.show();
+    }
+
+    private static TableColumn<Customer, String> getCustomerStringTableColumn() {
+        TableColumn<Customer, String> customerColumn = new TableColumn<>("Customer");
+
+        customerColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        customerColumn.setCellFactory((tableColumn) -> {
+            return new TableCell<Customer, String>() {
+                @Override
+                protected void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    this.setText(null);
+                    this.setGraphic(null);
+
+                    if(!empty){
+                        this.setText(item.toUpperCase());
+                    }
+                }
+            };
+        });
+        return customerColumn;
     }
 }
