@@ -41,8 +41,7 @@ public class TableViewCustomRenderingExample extends Application {
         TableColumn<Customer, String> customerColumn = new TableColumn<>("Customer");
 
         customerColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        customerColumn.setCellFactory((tableColumn) -> {
-            return new TableCell<Customer, String>() {
+        customerColumn.setCellFactory((tableColumn) ->  new TableCell<Customer, String>() {
                 @Override
                 protected void updateItem(String item, boolean empty) {
                     super.updateItem(item, empty);
@@ -54,8 +53,8 @@ public class TableViewCustomRenderingExample extends Application {
                         this.setText(item.toUpperCase());
                     }
                 }
-            };
         });
+
         return customerColumn;
     }
 }
