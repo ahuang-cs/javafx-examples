@@ -29,12 +29,12 @@ public class StageKeyboardEventsExample extends Application {
         primaryStage.addEventHandler(KeyEvent.KEY_PRESSED,  (event) -> {
             System.out.println("Key pressed: " + event.toString());
 
-            switch(event.getCode().getCode()) {
-                case 27 : { // 27 = ESC key
+            switch(event.getCode()) {
+                case ESCAPE : { // 27 = ESC key
                     primaryStage.close();
                     break;
                 }
-                case 10 : { // 10 = Return
+                case ENTER : { // 10 = Return
                     primaryStage.setWidth( primaryStage.getWidth() * 2);
                 }
                 default:  {

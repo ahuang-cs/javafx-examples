@@ -20,11 +20,11 @@ public class TableViewCustomRenderingExample extends Application {
 
         TableView tableView = new TableView();
 
-        TableColumn<Customer, String> customerColumn = new TableColumn<>("Customer");
+        TableColumn<Customer, String> customerColumn = new TableColumn<Customer, String>("Customer");
 
         customerColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         customerColumn.setCellFactory((tableColumn) -> {
-            TableCell<Customer, String> tableCell = new TableCell<>() {
+            TableCell<Customer, String> tableCell = new TableCell<Customer, String>() {
                 @Override
                 protected void updateItem(String item, boolean empty) {
                     super.updateItem(item, empty);
