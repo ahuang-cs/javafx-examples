@@ -3,19 +3,15 @@ package com.jenkov.javafx.webview;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
 import javafx.concurrent.Worker;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import netscape.javascript.JSObject;
 import org.w3c.dom.Document;
 
-import java.util.Date;
-import java.util.Iterator;
 
 public class WebViewJavaScriptIntegrationExample extends Application {
 
